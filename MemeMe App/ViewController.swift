@@ -40,12 +40,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomTextField.text = "BOTTOM"
         setupTextFieldStyle(toTextField: topTextField)
         setupTextFieldStyle(toTextField: bottomTextField)
-//        topTextField.delegate = self
-//        bottomTextField.delegate = self
-//        topTextField.defaultTextAttributes = memeTextAttributes
-//        bottomTextField.defaultTextAttributes = memeTextAttributes
-//        topTextField.textAlignment = .center
-//        bottomTextField.textAlignment = .center
     
     }
     
