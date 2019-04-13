@@ -29,13 +29,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var counterBottom = 0
     var memedImage = UIImage()
     
-    let pickerController = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         shareButton.isEnabled = false
-        pickerController.delegate = self
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
         setupTextFieldStyle(toTextField: topTextField)
@@ -95,40 +93,32 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     //MARK: Pick an image from Album
     
     @IBAction func pickAnImageFromAlbum(_ sender: Any) {
-        pickerController.sourceType = .photoLibrary
-        openImagePicker(pickerController.sourceType)
+        chooseSourceType(sourceType: .photoLibrary)
     }
     
     //MARK: Pick an image from Camera
     
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
-        pickerController.sourceType = .camera
-        openImagePicker(pickerController.sourceType)
+        chooseSourceType(sourceType: .camera)
     }
     
-    func openImagePicker(_ type: UIImagePickerController.SourceType) {
-        pickerController.allowsEditing = true
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
-            pickerController.cameraCaptureMode = .photo
-            pickerController.modalPresentationStyle = .fullScreen
-            present(pickerController,animated: true,completion: nil)
-            
-        }
-        else {
-            pickerController.allowsEditing = true
-            pickerController.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
-            present(pickerController,animated: true,completion: nil)
-        }
-        
+    
+    func chooseSourceType(sourceType: UIImagePickerController.SourceType) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = sourceType
+        shareButton.isEnabled = true
+        present(imagePicker, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController,didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[.originalImage] as? UIImage {
             imageViewPicker.contentMode = .scaleAspectFit
             imageViewPicker.image = pickedImage
+            shareButton.isEnabled = true
             dismiss(animated: true, completion: nil)
         }
-        shareButton.isEnabled = true
+        
         
     }
     
