@@ -10,13 +10,6 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate  {
 
-    struct Meme {
-        var topText: String?
-        var bottomText: String?
-        var originalImage: UIImage?
-        var memedImage: UIImage?
-        
-    }
     
     @IBOutlet var imageViewPicker: UIImageView!
     @IBOutlet var cameraButton: UIButton!
@@ -46,6 +39,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -187,6 +181,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func save() {
         // Create the meme
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageViewPicker.image!, memedImage: memedImage)
+        
+        // Add it to the memes array in the Application Delegate
+//        let object = UIApplication.shared.delegate
+//        let appDelegate = object as! AppDelegate
+//        appDelegate.memes.append(meme)
+        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
+        
+        self.dismiss(animated: true)
+
     }
     
     func generateMemedImage() -> UIImage {
@@ -208,5 +211,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func hideToolbars(_ hide: Bool) {
         toolBar.isHidden = hide
         navBar.isHidden = hide
+    }
+    
+    @IBAction func cancelBtton(_ sender: Any) {
+        self.dismiss(animated: true) 
     }
 }
