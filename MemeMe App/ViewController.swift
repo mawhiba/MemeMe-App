@@ -154,7 +154,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
-        return true;
+        return true
     }
     
     func setupTextFieldStyle(toTextField textField: UITextField) {
@@ -182,10 +182,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Create the meme
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageViewPicker.image!, memedImage: memedImage)
         
-        // Add it to the memes array in the Application Delegate
-//        let object = UIApplication.shared.delegate
-//        let appDelegate = object as! AppDelegate
-//        appDelegate.memes.append(meme)
         (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
         
         self.dismiss(animated: true)

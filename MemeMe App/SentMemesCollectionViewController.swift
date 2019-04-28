@@ -48,9 +48,14 @@ class SentMemesCollectionViewController: UICollectionViewController {
         
         // Set the memedImage
         cell.memeImageView?.image = meme.memedImage
-        //cell.schemeLabel.text = "Scheme: \(villain.evilScheme)"
         
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailsViewController") as! MemeDetailsViewController
+        detailController.mImage = self.memes[(indexPath as NSIndexPath).row]
+        self.navigationController!.pushViewController(detailController, animated: true)
     }
     
 }
