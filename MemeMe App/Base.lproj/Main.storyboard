@@ -163,16 +163,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6tw-cS-2jS">
-                                <rect key="frame" x="111" y="265" width="153" height="137"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6tw-cS-2jS">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6tw-cS-2jS" firstAttribute="top" secondItem="dp9-lz-ZTM" secondAttribute="top" constant="245" id="Yxx-2Z-zga"/>
-                            <constraint firstItem="6tw-cS-2jS" firstAttribute="leading" secondItem="dp9-lz-ZTM" secondAttribute="leading" constant="111" id="mMW-SK-ObK"/>
-                            <constraint firstItem="dp9-lz-ZTM" firstAttribute="trailing" secondItem="6tw-cS-2jS" secondAttribute="trailing" constant="111" id="mcI-vN-wXS"/>
-                            <constraint firstItem="dp9-lz-ZTM" firstAttribute="bottom" secondItem="6tw-cS-2jS" secondAttribute="bottom" constant="265" id="sQ0-5V-wZc"/>
+                            <constraint firstItem="6tw-cS-2jS" firstAttribute="leading" secondItem="dp9-lz-ZTM" secondAttribute="leading" id="CDf-cV-fcN"/>
+                            <constraint firstItem="6tw-cS-2jS" firstAttribute="top" secondItem="dp9-lz-ZTM" secondAttribute="top" id="UCx-XG-YgS"/>
+                            <constraint firstItem="dp9-lz-ZTM" firstAttribute="bottom" secondItem="6tw-cS-2jS" secondAttribute="bottom" id="huH-L2-CHr"/>
+                            <constraint firstItem="dp9-lz-ZTM" firstAttribute="trailing" secondItem="6tw-cS-2jS" secondAttribute="trailing" id="lTK-nb-MwG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dp9-lz-ZTM"/>
                     </view>
